@@ -101,8 +101,12 @@ type();
 
 // Resume Download
 document.getElementById('downloadResume').addEventListener('click', () => {
-    alert('Resume download initiated! (In a real app, this would download the PDF)');
+    const link = document.createElement('a');
+    link.href = 'resume.pdf'; // path to your file
+    link.download = 'Vartika-Gautam-Resume.pdf'; // name it should download as
+    link.click();
 });
+
 
 // Scroll Animation Observer
 const observerOptions = {
@@ -134,7 +138,7 @@ document.getElementById('contactForm').addEventListener('submit', (e) => {
     // In a real application, you would send this data to a server
     console.log('Form submitted:', { name, email, message });
     
-    alert('Thank you for your message! I will get back to you soon.');
+    alert('Thank you for your message :)');
     
     // Reset form
     e.target.reset();
