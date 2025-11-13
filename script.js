@@ -128,20 +128,23 @@ document.querySelectorAll('.animate-on-scroll').forEach(element => {
 });
 
 // Contact Form Submission
-document.getElementById('contactForm').addEventListener('submit', (e) => {
-    e.preventDefault();
-    
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const message = document.getElementById('message').value;
-    
-    // In a real application, you would send this data to a server
-    console.log('Form submitted:', { name, email, message });
-    
-    alert('Thank you for your message :)');
-    
-    // Reset form
-    e.target.reset();
+document.getElementById('contactForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const form = e.target;
+  const data = new FormData(form);
+
+  const res = await fetch(form.action, {
+    method: 'POST',
+    body: data,
+    headers: { 'Accept': 'application/json' }
+  });
+
+  if (res.ok) {
+    alert('✅ Message sent successfully!');
+    form.reset();
+  } else {
+    alert('❌ Failed to send message. Check console.');
+  }
 });
 
 // Add hover effect to project cards
