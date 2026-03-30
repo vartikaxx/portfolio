@@ -103,7 +103,7 @@ type();
 document.getElementById('downloadResume').addEventListener('click', () => {
     const link = document.createElement('a');
     link.href = 'resume.pdf'; // path to your file
-    link.download = 'Vartika-Gautam-Resume.pdf'; // name it should download as
+    link.download = 'Vartika_Gautam.pdf'; // name it should download as
     link.click();
 });
 
